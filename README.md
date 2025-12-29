@@ -1,18 +1,29 @@
-# 2026 Cancer Fund Monitor (癌症金流監測站) 🏥
+2026 Cancer Fund Monitor: Decentralized Transparency Terminal 🏥
+🏥 Mission Statement
+Developed by a healthcare industry professional in collaboration with an AI thought partner, this project aims to expose the lack of financial transparency in high-cost cancer drug pricing (e.g., Tagrisso). By leveraging decentralized technology, we ensure that critical healthcare data remains immutable and accessible to the public, safeguarding patient rights against administrative inefficiencies.
 
-### 🚀 專案願景
-本專案由**醫療產業從業人員**與 AI 協作開發，旨在利用去中心化技術揭露癌症藥價（如 Tagrisso）的不透明金流。
+🚀 Technical Architecture (Powered by AO Protocol)
+This project implements a decentralized "Healthcare Oracle" on the AO Global Computer (Arweave).
 
-### 🛠️ 技術實作 (Powered by AO Protocol)
-我們在 AO 全球計算網路上建立了不可竄改的監測預言機：
-- **AO Process ID:** `pbGpmAGd8ugv3NL09HqEL0EXJcYD3-kaIBvLuT-FgMY`
-- **後端邏輯 (`monitor.lua`):** 包含創始人權限控管、藥價動態資料庫與鏈上存證日誌。
-- **前端介面 (`index.html`):** Bloomberg Terminal 風格終端，即時讀取鏈上數據。
+AO Process ID: pbGpmAGd8ugv3NL09HqEL0EXJcYD3-kaIBvLuT-FgMY.
 
-### 📊 當前監控重點
-- **Tagrisso (肺癌標靶)**: 台灣健保價與國際市場價差比監控中。
-- **Enhertu (乳癌標靶)**: 鏈上數據同步存證。
+Backend Logic (monitor.lua): Features specialized authority control (Founder-only updates), dynamic drug database management, and on-chain evidence logging.
 
-### 👤 團隊與品牌
-- **Developer:** @imfinedev (一人一 AI 團隊)
-- **使命:** 推動 2026 癌症金流透明化。
+Frontend UI (index.html): A Bloomberg-style terminal interface built with v0, fetching real-time data directly from the AO network via @permaweb/aoconnect.
+
+📊 Active Monitoring List
+Tagrisso (Lung Cancer): Monitoring the massive price gap between Taiwan's NHI price and global market rates (Current markup gap detected: ~415.6%).
+
+Enhertu (Breast Cancer): Real-time indexing of pricing data.
+
+Lynparza (Ovarian Cancer): On-chain data synchronization in progress.
+
+📜 On-Chain Evidence Logging
+Every action—from data synchronization to system boots—is logged onto the AO ledger. These logs are permanent, verifiable, and cannot be altered by any centralized authority.
+
+👤 About the Developer
+Brand: @imfinedev (A one-person, one-AI development team).
+
+Vision: To bridge the gap between meme culture and social impact, using the $FINE project to drive funding toward healthcare transparency initiatives.
+
+Contact: Twitter/X @imfinedev.
