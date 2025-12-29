@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Cancer Fund Monitor | @imfinedev</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@permaweb/aoconnect"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+        body { font-family: 'JetBrains+Mono', monospace; background-color: #09090b; color: #22c55e; }
+        .terminal-border { border: 1px solid #14532d; }
+        .grid-bg { background-image: radial-gradient(#14532d 0.5px, transparent 0.5px); background-size: 20px 20px; }
+    </style>
+</head>
+<body class="grid-bg min-h-screen p-4">
+    <div class="max-w-6xl mx-auto space-y-4">
+        <header class="terminal-border bg-black/80 p-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold tracking-tighter text-green-500">2026 CANCER FUND MONITOR v1.0</h1>
+                <p class="text-xs opacity-70">DECENTRALIZED HEALTHCARE TRANSPARENCY TERMINAL</p>
+            </div>
+            <div class="text-right">
+                <p class="text-xs text-zinc-500">PROCESS ID:</p>
+                <p class="text-xs font-bold">pbGpmAGd8ugv3NL09HqEL0EXJcYD3-kaIBvLuT-FgMY</p>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <section class="md:col-span-2 terminal-border bg-black/80 p-6">
+                <h2 class="text-lg font-bold mb-4 border-b border-green-900 pb-2 flex items-center">
+                    <span class="mr-2">📊</span> 核心藥品監測清單 (Real-time from AO)
+                </h2>
+                <div id="price-list" class="space-y-4 text-sm">
+                    <p class="animate-pulse">正在從 AO 網絡同步數據...</p>
+                </div>
+            </section>
+
+            <section class="terminal-border bg-black/80 p-6">
+                <h2 class="text-lg font-bold mb-4 border-b border-green-900 pb-2 flex items-center">
+                    <span class="mr-2">📜</span> 鏈上存證日誌
+                </h2>
+                <div id="log-list" class="space-y-2 text-xs h-64 overflow-y-auto">
+                    <p>等待日誌同步...</p>
+                </div>
+            </section>
+        </div>
+
+        <footer class="terminal-border bg-black/80 p-4 text-center text-xs space-y-2">
+            <p>DESIGNED BY <span class="text-white font-bold">@imfinedev</span> | POWERED BY <span class="text-green-400">AO PROTOCOL</span></p>
+            <p class="text-zinc-500">身為醫療從業人員，我們致力於讓每一分癌症金流都透明可查。</p>
+        </footer>
+    </div>
+
+    <script>
+        const PROCESS_ID = "pbGpmAGd8ugv3NL09HqEL0EXJcYD3-kaIBvLuT-FgMY";
+
+        async function fetchAOData() {
+            try {
+                // 讀取價格
+                const priceResult = await ao.read({ process: PROCESS_ID, action: "GetPrices" });
+                const prices = JSON.parse(priceResult);
+                renderPrices(prices.data || prices);
+
+                // 讀取日誌
+                const logResult = await ao.read({ process: PROCESS_ID, action: "GetLogs" });
+                const logs = JSON.parse(logResult);
+                renderLogs(logs);
+            } catch (e) {
+                console.error(e);
+                document.getElementById('price-list').innerHTML = "<p class='text-red-500'>同步失敗：請檢查網路或 Process ID</p>";
+            }
+        }
+
+        function renderPrices(data) {
+            const html = data.map(d => `
+                <div class="flex justify-between items-center border-b border-zinc-800 py-2">
+                    <div>
+                        <span class="font-bold text-white">${d.name}</span>
+                        <span class="text-[10px] ml-2 bg-zinc-800 px-1 text-zinc-400">${d.category}</span>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-xs">TW: <span class="text-red-400">$${d.tw_price.toLocaleString()}</span></p>
+                        <p class="text-xs">US: <span class="text-green-400">$${d.us_price.toLocaleString()}</span></p>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('price-list').innerHTML = html;
+        }
+
+        function renderLogs(logs) {
+            const html = logs.map(l => `
+                <div class="mb-2 border-l-2 border-green-900 pl-2">
+                    <p class="text-zinc-500 text-[10px]">${l.timestamp} [${l.event}]</p>
+                    <p class="text-white">${l.detail}</p>
+                </div>
+            `).join('');
+            document.getElementById('log-list').innerHTML = html;
+        }
+
+        fetchAOData();
+        setInterval(fetchAOData, 30000); // 每 30 秒自動重新整理
+    </script>
+</body>
+</html>
