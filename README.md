@@ -1,6 +1,7 @@
 2026 Cancer Fund Monitor: Decentralized Transparency Terminal 🏥
 🏥 Mission Statement
 Developed by a healthcare industry professional in collaboration with an AI thought partner, this project aims to expose the lack of financial transparency in high-cost cancer drug pricing (e.g., Tagrisso). By leveraging decentralized technology, we ensure that critical healthcare data remains immutable and accessible to the public, safeguarding patient rights against administrative inefficiencies.
+## 🌐 [Click here for Live Demo (on Arweave/Permaweb)](https://p442eakfxkzuagsweh3qiolz4gwj7uixtaszm74at4tlg2ji5emq.arweave.net/fzmiAUW6s0AaViH3BDl54ayf0ReYJZZ_gJ8ms2ko6Rk)
 
 🚀 Technical Architecture (Powered by AO Protocol)
 This project implements a decentralized "Healthcare Oracle" on the AO Global Computer (Arweave).
