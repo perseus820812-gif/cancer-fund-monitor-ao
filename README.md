@@ -11,7 +11,7 @@
 ---
 
 ## 🌐 [Click here for Live Demo (on Arweave/Permaweb)](https://b7vcmws2iiutjsem2fcyjeu3t4wctje4vxq5kyvow52fgjmvss5q.arweave.net/D-omWlpCKTTIjNFFhJKbnywppJyt4dVirrd0UyWVlLs)
-
+(Note: Frontend data synchronization is currently in progress. Please refer to the Process ID for the latest immutable logs.)
 ---
 
 ## 🏥 Mission Statement / 專案願景
