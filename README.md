@@ -45,6 +45,7 @@
 | **Trodelvy (拓達維)** | Taiwan | **5+ Months** | ZERO Claims |
 
 [cite_start]*Note: Budget of 5,000,000,000 TWD remains unspent as of 2025-12-30.*
+![S__22716420_0](https://github.com/user-attachments/assets/fb98c6c8-6473-42a4-9096-d906cfe77bd8)
 
 ---
 
@@ -52,6 +53,7 @@
 This project is evolving into a **Global Healthcare Audit Protocol**:
 * [cite_start]**Arbitrage Transparency**: We are tracking the **317% - 415% price gaps** of drugs like **Tagrisso** to expose how administrative delays cost lives while budgets remain unspent.
 * [cite_start]**Decentralized Truth Oracle**: To build a system that patients worldwide can use to hold their governments accountable.
+![S__22716419_0](https://github.com/user-attachments/assets/6adf1013-e97a-4430-b45f-971c41565d44)
 
 ---
 
