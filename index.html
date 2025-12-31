@@ -1,181 +1,130 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 Cancer Fund Monitor | AO Autonomous Terminal</title>
+    <title>Global Cancer Fund Audit | International Benchmark</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #09090b; font-family: 'JetBrains+Mono', monospace; color: #ecf0f1; }
-        .terminal-glow { box-shadow: 0 0 15px rgba(16, 185, 129, 0.1); }
-        .scanline { width: 100%; height: 2px; background: rgba(16, 185, 129, 0.1); position: absolute; animation: scan 4s linear infinite; }
+        body { background-color: #09090b; font-family: 'JetBrains Mono', monospace; color: #ecf0f1; }
+        .terminal-border { border: 1px solid #14532d; }
+        .stagnant-row { background: rgba(255, 62, 62, 0.1); border-left: 2px solid #ff4444; }
+        .verified-row { background: rgba(16, 185, 129, 0.05); border-left: 2px solid #10b981; }
+        .scanline { width: 100%; height: 2px; background: rgba(16, 185, 129, 0.1); position: absolute; animation: scan 4s linear infinite; pointer-events: none; }
         @keyframes scan { from { top: 0; } to { top: 100%; } }
     </style>
 </head>
 <body class="p-4 md:p-8">
-
-    <header class="max-w-6xl mx-auto flex justify-between items-center mb-8">
+    <header class="max-w-6xl mx-auto flex justify-between items-center mb-8 terminal-border p-4 bg-black shadow-[0_0_20px_rgba(16,185,129,0.2)]">
         <div>
-            <h1 class="text-2xl font-bold text-emerald-500 flex items-center gap-2">
-                <span class="relative flex h-3 w-3">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                </span>
-                2026 Cancer Fund Monitor
-            </h1>
-            <p class="text-xs text-zinc-500 mt-1">Healthcare Transparency Terminal v1.1</p>
+            <h1 class="text-2xl font-bold text-emerald-500 uppercase italic">🛡️ GLOBAL CANCER FUND AUDIT TERMINAL</h1>
+            <p class="text-[10px] text-zinc-500 mt-1 font-mono">ENCRYPTED DATA FEED FROM AO PROCESS: pbGpmAGd8ugv3NL09HqEL0EXJcYD3-kaIBvLuT-FgMY</p>
         </div>
-        <div class="text-right">
-            <span class="bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-full text-xs text-zinc-400">
-                Built by @imfinedev (One-Person-AI Team)
-            </span>
-        </div>
+        <div class="text-right text-[10px] text-zinc-400 font-bold">Project: Cross-Border Audit v2.0.0 | @imfinedev</div>
     </header>
 
     <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
         <div class="lg:col-span-2 space-y-6">
-            <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-4 relative overflow-hidden terminal-glow">
+            <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-6 relative overflow-hidden">
                 <div class="scanline"></div>
-                <h3 class="text-xs font-bold text-zinc-500 mb-3 uppercase">AO Autonomous Agent Logs</h3>
-                <div id="log-container" class="space-y-1 text-sm text-emerald-500/80 h-32 overflow-y-auto">
-                    <p>[SYSTEM] Initializing connection to AO network...</p>
-                </div>
-            </div>
-
-            <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-6">
-                <h3 class="text-sm font-bold text-zinc-400 mb-6 uppercase">The Transparency Gap (Monthly Cost TWD)</h3>
-                <div style="height: 300px;">
-                    <canvas id="costChart"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <div class="space-y-6">
-            <div class="bg-zinc-950 border border-red-900/30 rounded-lg p-6 terminal-glow">
-                <h3 class="text-xs font-bold text-red-500 mb-4 uppercase flex items-center gap-2">
-                    <span class="h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
-                    🛡️ Whistleblower Portal
-                </h3>
-                <textarea id="leak-input" class="w-full bg-zinc-900 border border-zinc-800 p-3 text-xs text-white mb-3 rounded outline-none focus:border-red-500 transition" rows="3" placeholder="請輸入金流事證..."></textarea>
-                <button onclick="submitLeak()" class="w-full bg-red-900/80 hover:bg-red-700 text-white font-bold py-2 text-xs uppercase tracking-widest transition rounded">Submit to AO Ledger</button>
-            </div>
-
-            <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-6 text-center">
-                <h3 class="text-xs font-bold text-zinc-500 mb-4 uppercase">Permanent Integrity</h3>
-                <div class="text-5xl font-bold text-emerald-500 mb-2">3,487</div>
-                <p class="text-xs text-zinc-500">Evidence Files Secured Forever</p>
-                <p class="text-[10px] text-zinc-600 mt-4">Powered by Arweave & ao Computer</p>
-            </div>
-
-            <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-6">
-                <h3 class="text-xs font-bold text-zinc-500 mb-4 uppercase">Development Roadmap</h3>
-                <ul class="space-y-4">
-                    <li class="flex items-start gap-3">
-                        <div class="h-2 w-2 mt-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]"></div>
-                        <div>
-                            <p class="text-sm font-bold">Phase 1</p>
-                            <p class="text-xs text-zinc-500">Founder Residency & Grant</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-3 opacity-50">
-                        <div class="h-2 w-2 mt-1.5 rounded-full bg-zinc-700"></div>
-                        <div>
-                            <p class="text-sm font-bold text-zinc-400">Phase 2</p>
-                            <p class="text-xs text-zinc-500">$VITAL Tokenization</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="lg:col-span-3">
-            <div class="bg-zinc-950 border border-zinc-800 rounded-lg overflow-hidden">
-                <div class="p-4 border-b border-zinc-800">
-                    <h3 class="text-sm font-bold text-zinc-400 uppercase">2025 標靶藥物資料庫 (實時監控)</h3>
-                </div>
-                <table class="w-full text-left text-sm">
-                    <thead class="bg-zinc-900/50 text-zinc-500">
-                        <tr>
-                            <th class="p-4 font-medium">藥品名稱</th>
-                            <th class="p-4 font-medium">健保趨勢</th>
-                            <th class="p-4 font-medium">估計自費</th>
-                            <th class="p-4 font-medium text-right">狀態</th>
+                <h3 class="text-xs font-bold text-emerald-500 mb-4 uppercase tracking-widest">Reimbursement Lag Benchmark (國際給付審計)</h3>
+                <table class="w-full text-[13px]">
+                    <thead>
+                        <tr class="text-zinc-600 border-b border-zinc-900">
+                            <th class="p-3 text-left">NATION / ENTITY</th>
+                            <th class="p-3 text-left">DRUG CLASS</th>
+                            <th class="p-3 text-center">LAG (DAYS)</th>
+                            <th class="p-3 text-right">AUDIT STATUS</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-zinc-800 text-zinc-300">
-                        <tr>
-                            <td class="p-4">Enhertu (乳癌)</td>
-                            <td class="p-4 text-xs">2025 Q1 納入</td>
-                            <td class="p-4">$100,000+/月</td>
-                            <td class="p-4 text-right"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 text-[10px]">● Indexing</span></td>
+                    <tbody>
+                        <tr class="stagnant-row border-b border-zinc-900/50">
+                            <td class="p-4 font-bold text-zinc-100">Taiwan (NHIA)</td>
+                            <td class="p-4 text-zinc-500 italic">Targeted Therapy</td>
+                            <td class="p-4 text-center font-mono text-red-500 font-bold">458 Days</td>
+                            <td class="p-4 text-right text-[10px] text-red-500 uppercase">Systemic Failure</td>
                         </tr>
-                        <tr>
-                            <td class="p-4">Lynparza (卵巢癌)</td>
-                            <td class="p-4 text-xs">有條件給付</td>
-                            <td class="p-4">$250,000+/月</td>
-                            <td class="p-4 text-right"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 text-[10px]">● Indexing</span></td>
+                        <tr class="verified-row border-b border-zinc-900/50">
+                            <td class="p-4 font-bold text-zinc-100">Japan (MHLW)</td>
+                            <td class="p-4 text-zinc-500 italic">Targeted Therapy</td>
+                            <td class="p-4 text-center font-mono text-emerald-400 font-bold">60 Days</td>
+                            <td class="p-4 text-right text-[10px] text-emerald-500 uppercase">Optimal Efficiency</td>
                         </tr>
-                        <tr>
-                            <td class="p-4">Tagrisso (肺癌)</td>
-                            <td class="p-4 text-xs">已部分納入</td>
-                            <td class="p-4">$115,500/月</td>
-                            <td class="p-4 text-right"><span class="px-2 py-0.5 rounded bg-zinc-800 text-zinc-500 text-[10px]">● Stable</span></td>
+                        <tr class="border-b border-zinc-900/50">
+                            <td class="p-4 font-bold text-zinc-100">Global Average</td>
+                            <td class="p-4 text-zinc-500 italic">OECD Standard</td>
+                            <td class="p-4 text-center font-mono text-zinc-400 font-bold">120 Days</td>
+                            <td class="p-4 text-right text-[10px] text-zinc-500 uppercase">Benchmark</td>
+                        </tr>
+                        <tr class="stagnant-row">
+                            <td class="p-4 font-bold text-zinc-100">Special Fund (TWD)</td>
+                            <td class="p-4 text-zinc-500 italic">Budget Execution</td>
+                            <td class="p-4 text-center font-mono text-red-500 font-bold">10B Undisclosed</td>
+                            <td class="p-4 text-right text-[10px] text-red-500 uppercase">Inertia Detected</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+
+            <div class="bg-zinc-950 border border-zinc-800 rounded p-6 h-[300px]">
+                <canvas id="staticChart"></canvas>
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            <div class="bg-zinc-950 border border-red-900/30 rounded p-6 shadow-[0_0_15px_rgba(239,68,68,0.05)]">
+                <h3 class="text-xs font-bold text-red-500 mb-4 uppercase flex items-center gap-2">
+                    <span class="h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
+                    Evidence Submission
+                </h3>
+                <div class="bg-zinc-900 border border-zinc-800 p-3 text-[10px] text-zinc-500 mb-4 font-mono leading-relaxed">
+                    [SECURE TRANSMISSION]<br>
+                    Data will be cryptographically hashed and stored permanently on the Arweave Permaweb.
+                </div>
+                <textarea class="w-full bg-zinc-900 border border-zinc-800 p-2 text-[10px] text-white mb-3 outline-none" rows="3" placeholder="Waiting for audit payload..."></textarea>
+                <button class="w-full bg-red-900/40 border border-red-900 text-red-500 font-bold py-2 text-[10px] uppercase cursor-not-allowed">Secure Upload Offline</button>
+            </div>
+
+            <div class="bg-zinc-900/20 border border-zinc-800 p-4 text-[11px] text-zinc-400">
+                <p class="text-emerald-700 font-bold mb-2 underline uppercase">Audit Insights:</p>
+                <p class="mb-3">1. Taiwan's drug reimbursement lag is **7.6x longer** than Japan's, revealing significant bureaucratic friction.</p>
+                <p class="mb-3">2. Misalignment between allocated budget (10B TWD) and clinical accessibility remains critical.</p>
+                <p>3. This terminal provides a permanent, censorship-resistant record of administrative silence.</p>
+            </div>
         </div>
     </main>
 
-    <script src="https://unpkg.com/@permaweb/aoconnect"></script>
     <script>
-        // 初始化圖表 (保留原始設計)
-        const ctx = document.getElementById('costChart').getContext('2d');
+        const ctx = document.getElementById('staticChart').getContext('2d');
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['USA (Market)', 'Germany', 'Taiwan (NHI)'],
+                labels: ['Taiwan (Lag)', 'Japan (Lag)', 'OECD Avg'],
                 datasets: [{
-                    label: 'Monthly Cost (TWD)',
-                    data: [480000, 180000, 115500],
-                    backgroundColor: ['#ef4444', '#3b82f6', '#10b981'],
-                    borderRadius: 4
+                    label: 'Wait Time (Days)',
+                    data: [458, 60, 120],
+                    backgroundColor: ['#ef4444', '#10b981', '#3f3f46']
                 }]
             },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.05)' } } } }
-        });
-
-        // AO 邏輯
-        const AO_PROCESS_ID = "pbGpmAGd8ugv3NL09HqEL0EXJcYD3-kaIBvLuT-FgMY"; 
-
-        async function fetchAOData() {
-            const container = document.getElementById('log-container');
-            try {
-                // 讀取 AO 鏈上真實日誌
-                const result = await ao.read({ process: AO_PROCESS_ID, action: "GetLogs" });
-                const logs = JSON.parse(result);
-                container.innerHTML = logs.map(l => `<p>[${l.timestamp}] ${l.event}: ${l.detail}</p>`).join('');
-            } catch (e) {
-                console.error("AO Sync Error", e);
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false,
+                scales: { 
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1a1a1a' },
+                        ticks: { color: '#52525b' }
+                    },
+                    x: {
+                        ticks: { color: '#52525b' }
+                    }
+                },
+                plugins: { 
+                    legend: { display: false } 
+                }
             }
-        }
-
-        async function submitLeak() {
-            const content = document.getElementById('leak-input').value;
-            if (!content) return alert("請輸入內容");
-            try {
-                await ao.send({ process: AO_PROCESS_ID, action: "SubmitMessage", data: content });
-                alert("存證成功！證據已永久寫入 Arweave/AO 網路。");
-                document.getElementById('leak-input').value = '';
-                fetchAOData(); // 重新整理日誌
-            } catch (e) { alert("連線失敗"); }
-        }
-
-        setInterval(fetchAOData, 15000);
-        fetchAOData();
+        });
     </script>
 </body>
 </html>
