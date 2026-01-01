@@ -13,6 +13,20 @@ As a professional in the chemotherapy drug industry, I have identified a critica
 | **Reimbursement Lag** | **458 Days** | **60-90 Days** | **7.6x Slower** |
 | **Administrative Fee** | **150,000 TWD** | Standardized | High Friction |
 
+### 📊 The Cost of Administrative Silence: Japan vs. Taiwan
+
+To demonstrate why we need the **AO Truth Machine**, I have audited the reimbursement timeline for **Tagrisso (Osimertinib)**, a critical lung cancer drug.
+
+| Metric | Japan (MHLW/Chuikyo) | Taiwan (NHIA/TMCDF) |
+| :--- | :--- | :--- |
+| **Approval Date** | 2016-03-28 | 2016-11-23 |
+| **Listing Date** | 2016-05-25 | 2020-04-01 |
+| **Reimbursement Wait** | **58 Days** (Met the "60-day Rule") | **1,225 Days** (3.3+ Years) |
+
+**Financial Impact on Patients:**
+In Taiwan, patients pay approximately **150,000 TWD ($4,600 USD) per month** during this wait. 
+- Total "Administrative Delay" cost: **~5,835,000 TWD per patient.**
+- This is the **"Survival Barrier"** that our AO project aims to record and expose forever.
 *Data based on real-world monitoring of drugs like **Tagrisso** and systemic administrative silos.*
 
 ## 🚀 Live on Permaweb
