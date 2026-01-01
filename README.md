@@ -23,6 +23,8 @@ To demonstrate why we need the **AO Truth Machine**, I have audited the reimburs
 | **Listing Date** | 2016-05-25 | 2020-04-01 |
 | **Reimbursement Wait** | **58 Days** (Met the "60-day Rule") | **1,225 Days** (3.3+ Years) |
 
+"The wait for Colorectal cancer (Keytruda) costs a family 7.6 million TWD in self-pay drugs. This isn't healthcare; it's a financial death sentence."
+
 **Financial Impact on Patients:**
 In Taiwan, patients pay approximately **150,000 TWD ($4,600 USD) per month** during this wait. 
 - Total "Administrative Delay" cost: **~5,835,000 TWD per patient.**
