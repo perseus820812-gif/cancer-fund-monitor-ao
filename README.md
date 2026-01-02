@@ -47,7 +47,8 @@ The terminal is deployed as a permanent application on Arweave:
 ## 📅 Roadmap
 - [x] **v1.0.0**: Local pilot for Taiwan drug fund tracking.
 - [x] **v2.0.0**: International benchmarking (Japan) and English UI deployment.
-- [ ] **v3.0.0**: Automated data ingestion via AO Crons & Multi-country expansion.
+- [ ] **v3.0**: Automated data ingestion via AO Crons & Multi-country expansion.
+- [ ] **v4.0**: Full-scale high-value drug coverage and DAO-powered global healthcare justice protocol.
 
 ---
 *Built with passion by a builder who believes that data can save lives.*
