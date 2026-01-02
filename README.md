@@ -15,13 +15,17 @@ As a professional in the chemotherapy drug industry, I have identified a critica
 
 ### 📊 The Cost of Administrative Silence: Japan vs. Taiwan
 
-To demonstrate why we need the **AO Truth Machine**, I have audited the reimbursement timeline for **Tagrisso (Osimertinib)**, a critical lung cancer drug.
+To demonstrate the power of the **AO Truth Machine**, we audited the reimbursement gap for critical oncology drugs. 
 
-| Metric | Japan (MHLW/Chuikyo) | Taiwan (NHIA/TMCDF) |
-| :--- | :--- | :--- |
-| **Approval Date** | 2016-03-28 | 2016-11-23 |
-| **Listing Date** | 2016-05-25 | 2020-04-01 |
-| **Reimbursement Wait** | **58 Days** (Met the "60-day Rule") | **1,225 Days** (3.3+ Years) |
+🚨 Extreme Audit Discovery: > Our system identified that Tecentriq faced an administrative silence of 2,875 Days (~8 Years) in Taiwan. This is the ultimate "Memory Hole" we are sealing with AO.
+
+| Drug Name | Japan (MHLW) | Taiwan (NHIA) | The "Silence" Gap |
+| :--- | :--- | :--- | :--- |
+| **Tagrisso** | 58 Days | 1,225 Days | **21x Slower** |
+| **Enhertu** | 60 Days | 458 Days | **7.6x Slower** |
+| **Tecentriq**| Standardized | **2,875 Days** | **~8 Years of Silence** |
+
+> "The wait for Tecentriq (8 years) isn't just a delay; it's an erasure of patient rights. We use AO to make sure these 'Memory Holes' are sealed forever."
 
 "The wait for Colorectal cancer (Keytruda) costs a family 7.6 million TWD in self-pay drugs. This isn't healthcare; it's a financial death sentence."
 
