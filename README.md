@@ -45,7 +45,7 @@ The terminal is deployed as a permanent application on Arweave:
 * **International Benchmarking:** Integrated Japan’s MHLW data to expose the **7.6x efficiency gap**.
 * **AO Process Migration:** Moving core audit logic to **AOS processes** to enable high-concurrency, cross-border data verification.
 * **Automated Monitoring Logic:** Integrated technical hooks for **AO Cron Jobs**, laying the foundation for v3.0’s 24/7 autonomous surveillance without human intervention.
-* **Proof of Permanence:** Each audit discovery (like the 2,875-day Tecentriq delay) is now cryptographically linked to its original source via **Arweave snapshots**.
+* **Proof of Permanence (Technical Framework Ready):** We have established the protocol to seal original government records on Arweave to prevent "Memory Holes"。Currently, we are preparing the final archival of the **2,875-day Tecentriq records**，which is pending the **10GB additional storage endowment** provided by the Pathfinder Grant to ensure lifelong integrity。
 
 ## 🛠️ Technical Architecture
 - **AO Network**: Utilizing parallel computing to verify multi-source fund flow data.
