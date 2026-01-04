@@ -39,6 +39,14 @@ In Taiwan, patients pay approximately **150,000 TWD ($4,600 USD) per month** dur
 The terminal is deployed as a permanent application on Arweave:
 🔗 **[Live Audit Terminal](https://arweave.net/knzlINWz3U8KT5Y8afivO38ao6v5ctqNjty0rg_1YZY)**
 
+## 🚀 What's New in v2.0.0 (January 2026)
+*This update marks our transition from a local data model to a decentralized, autonomous audit protocol.*
+
+* **International Benchmarking:** Integrated Japan’s MHLW data to expose the **7.6x efficiency gap**.
+* **AO Process Migration:** Moving core audit logic to **AOS processes** to enable high-concurrency, cross-border data verification.
+* **Automated Monitoring Logic:** Integrated technical hooks for **AO Cron Jobs**, laying the foundation for v3.0’s 24/7 autonomous surveillance without human intervention.
+* **Proof of Permanence:** Each audit discovery (like the 2,875-day Tecentriq delay) is now cryptographically linked to its original source via **Arweave snapshots**.
+
 ## 🛠️ Technical Architecture
 - **AO Network**: Utilizing parallel computing to verify multi-source fund flow data.
 - **Arweave**: Cryptographically sealing audit reports to prevent data tampering.
