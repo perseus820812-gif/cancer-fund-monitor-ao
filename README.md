@@ -39,18 +39,16 @@ In Taiwan, patients pay approximately **150,000 TWD ($4,600 USD) per month** dur
 The terminal is deployed as a permanent application on Arweave:
 🔗 **[Live Audit Terminal](https://arweave.net/knzlINWz3U8KT5Y8afivO38ao6v5ctqNjty0rg_1YZY)**
 
-## 🚀 What's New in v2.0.0 (January 2026)
-*This update marks our transition from a local data model to a decentralized, autonomous audit protocol.*
+🚀 What's New in v2.0.0 (Technical Migration)
+This update marks the transition from a data model to a decentralized, autonomous audit protocol.
 
-* **International Benchmarking:** Integrated Japan’s MHLW data to expose the **7.6x efficiency gap**.
-* **AO Process Migration:** Moving core audit logic to **AOS processes** to enable high-concurrency, cross-border data verification.
-* **Automated Monitoring Logic:** Integrated technical hooks for **AO Cron Jobs**, laying the foundation for v3.0’s 24/7 autonomous surveillance without human intervention.
-* **Proof of Permanence (Technical Framework Ready):** We have established the protocol to seal original government records on Arweave to prevent "Memory Holes"。Currently, we are preparing the final archival of the **2,875-day Tecentriq records**，which is pending the **10GB additional storage endowment** provided by the Pathfinder Grant to ensure lifelong integrity。
+AOS Process Architecture: Core audit logic has been migrated to AOS processes (OncoAudit.lua & monitor.lua), enabling high-concurrency, cross-border data verification.
 
-## 🛠️ Technical Architecture
-- **AO Network**: Utilizing parallel computing to verify multi-source fund flow data.
-- **Arweave**: Cryptographically sealing audit reports to prevent data tampering.
-- **Lua & Web Terminal**: A lightweight, high-integrity interface for global transparency.
+International Benchmarking: Integrated Japan’s MHLW data to programmatically calculate the 7.6x efficiency gap.
+
+Proof of Permanence: Established the protocol to seal government records on Arweave. We are currently preparing to archive the 2,875-day Tecentriq records, pending the 10GB storage endowment for lifelong integrity.
+
+🛠️ Technical Architecture & Roadmap (v3.0)We are evolving into a fully Autonomous Monitoring Engine.Current Tech Stack:AO Network: Parallel compute for multi-source fund flow verification.Arweave: Cryptographically sealing reports to prevent "Memory Holes".AOS (Lua): Handling complex pharmaceutical data schemas.Next Steps (The Pathfinder Path):[v3.0 Target] AO Cron Jobs: Implementing 24/7 autonomous polling of regulatory APIs without human intervention.[Resource Allocation] AOS Scaling: Utilizing the $\$10,000$ development grant to recruit specialized AOS (Lua) engineers to build the multi-jurisdiction data normalization engine (Target: Japan MHLW vs. Taiwan NHIA).[Infrastructure] Compute Credits: Leveraging the $\$5,000$ compute credits to run high-frequency audit agents on AO.
 
 ## 📅 Roadmap
 - [x] **v1.0.0**: Local pilot for Taiwan drug fund tracking.
