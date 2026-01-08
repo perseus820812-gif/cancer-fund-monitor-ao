@@ -1,51 +1,86 @@
--- Project: OncoAudit v2.0.0
--- Objective: Decentralized Oncology Regulatory Audit Protocol
+-- Project: OncoAudit: International Audit Terminal
+-- Version: 2.0.0 (January 2026 Migration)
+-- Objective: Permanent monitoring of oncology drug reimbursement gaps
 -- Architecture: AOS (Arweave Object) Parallel Processing
 -- Target: Benchmarking 7.6x Efficiency Gaps in Global Healthcare
 
--- 1. Initialize storage state (persistent across code updates)
-AuditLogs = AuditLogs or {}
-
--- 2. Core Logic: Data Ingestion (v2.0 Mock Layer)
--- [Technical Note] v3.0 will replace this with AO Cron Jobs fetching real-world API data
-function fetchLatestDrugData()
-    local mockID = "TX-" .. math.random(1000, 9999)
-    local mockAmount = math.random(50000, 500000)
-    
-    local newEntry = {
-        id = mockID,
-        amount = mockAmount,
-        status = "Pending_Audit",
-        timestamp = os.date("%Y-%m-%d %H:%M:%S") -- Using formatted timestamp
+-- [1] Initialize Database with Real-World Evidence (Persistent State)
+Founder = Founder or Owner 
+DrugDatabase = DrugDatabase or {
+    { 
+        id = "1", name = "Tagrisso", category = "Lung Cancer", 
+        tw_wait_days = 1225, status = "Audited", 
+        source = "https://tmcdfplatform.org.tw/" 
+    },
+    { 
+        id = "2", name = "Enhertu", category = "Breast Cancer", 
+        tw_wait_days = 458, status = "Audited", 
+        source = "https://tmcdfplatform.org.tw/" 
+    },
+    { 
+        id = "3", name = "Tecentriq", category = "Immunotherapy", 
+        tw_wait_days = 2875, status = "Admin_Silence", 
+        source = "https://tmcdfplatform.org.tw/" 
+    },
+    { 
+        id = "4", name = "Japan_MHLW_Dataset", 
+        status = "Link_Rot_Detected", 
+        note = "Original source (404) lost on legacy web. Metadata preserved via OncoAudit on AO." 
     }
-    
-    table.insert(AuditLogs, newEntry)
-    return "Successfully fetched audit record! ID: " .. mockID .. " Amount: $" .. mockAmount
+}
+Logs = Logs or {} 
+LeakingLogs = LeakingLogs or {} 
+
+-- [2] Helper: System Logging
+function AddLog(e, d)
+    table.insert(Logs, 1, { 
+        timestamp = os.date("%Y-%m-%d %H:%M:%S"), 
+        event = e, 
+        detail = d 
+    })
+    if #Logs > 50 then table.remove(Logs) end
 end
 
--- 3. Handler: Manual Audit Trigger (for Demo/Pathfinder testing)
-Handlers.add(
-    "ManualAudit",
-    Handlers.utils.hasMatchingTag("Action", "Audit"),
-    function (msg)
-        local result = fetchLatestDrugData()
-        print(result)
-        msg.reply({ Data = result })
-    end
-)
+-- [3] Handlers: Data Retrieval
+Handlers.add("GetPrices", Handlers.utils.hasMatchingTag("Action", "GetPrices"), function(msg)
+    print("Dispatching Audit Records...")
+    Handlers.utils.reply(require("json").encode(DrugDatabase))(msg)
+end)
 
--- 4. Handler: Query Audit Logs (Optimized for Frontend JSON response)
-Handlers.add(
-    "GetLogs",
-    Handlers.utils.hasMatchingTag("Action", "GetLogs"),
-    function (msg)
-        print("--- Dispatching Audit Log List ---")
-        -- Returning the table as JSON allows your index.html to render it properly
-        msg.reply({ 
-            Data = require("json").encode(AuditLogs),
-            Action = "LogResponse"
-        })
-    end
-)
+Handlers.add("GetLogs", Handlers.utils.hasMatchingTag("Action", "GetLogs"), function(msg)
+    Handlers.utils.reply(require("json").encode(Logs))(msg)
+end)
 
-print("OncoAudit v2.0.0 Protocol Loaded: Ready for AO Network")
+-- [4] Handlers: Anonymous Evidence Submission (v4.0 Physical Evidence Prototype)
+-- Designed for regions without digital data - allowing upload of document hashes.
+Handlers.add("SubmitMessage", Handlers.utils.hasMatchingTag("Action", "SubmitMessage"), function(msg)
+    table.insert(LeakingLogs, 1, { 
+        from = msg.From, 
+        data = msg.Data, -- Expected: IPFS/Arweave Hash of physical document scan
+        timestamp = os.date("%Y-%m-%d %H:%M:%S"),
+        method = "Citizen_Audit_Submission" 
+    })
+    AddLog("Manual_Evidence_Stored", "Citizen submitted physical document hash for verification.")
+    msg.reply({ Data = "Evidence Cryptographically Sealed on AO." })
+end)
+
+-- [5] Handlers: Update Price (Admin Only)
+Handlers.add("UpdatePrice", Handlers.utils.hasMatchingTag("Action", "UpdatePrice"), function(msg)
+    if msg.From ~= Owner then 
+        msg.reply({ Error = "Unauthorized" }) 
+        return 
+    end
+    local n = require("json").decode(msg.Data)
+    for i, v in ipairs(DrugDatabase) do
+        if v.name == n.name then
+            DrugDatabase[i].tw_wait_days = n.tw_wait_days or v.tw_wait_days
+            DrugDatabase[i].status = "Updated_By_Authority"
+            AddLog("Audit_Update", v.name)
+            break
+        end
+    end
+    msg.reply({ Data = "Update Successful" })
+end)
+
+AddLog("Protocol_Launch", "OncoAudit v2.0.0 Global Terminal Online")
+print("--- [OncoAudit v2.0.0] Ready for Arweave Pathfinder Audit ---")
