@@ -1,4 +1,19 @@
-🛡️ OncoAudit: International Healthcare Audit Terminal (v2.0.0)Closing the "Memory Hole" of administrative silence in global oncology healthcare.🏥 MissionThis project leverages the AO Network and Arweave to provide a permanent, decentralized audit layer for cancer drug reimbursement and regulatory data. Our goal is to ensure that life-saving transparency is never erased by bureaucracy.📊 Global Audit Dashboard (v2.0.0 Global Expansion)Current status of international regulatory administrative lag.Target DrugCase IDBaseline (US FDA)Comparison RegionStatusAudit DelayRituxanRIT-2026-JPOct 2012Japan (MHLW)Deliberating~13.2 YearsXeljanzXEL-2017-EUNov 2012European UnionSafety Update52 MonthsXeljanzXEL-2013-TWNov 2012Taiwan (TFDA)Approved13 Months🚨 Audit Discovery: Rituxan's 100mg/500mg dosage standards were settled by the FDA in 2012. However, our 2026 audit found the MHLW still deliberating partial changes for these same dosages in Japan, exposing a 13.2-year regulatory gap.
+🛡️ OncoAudit: International Healthcare Audit Terminal (v2.0.0)
+Closing the "Memory Hole" of administrative silence in global oncology healthcare.
+
+🏥 Mission
+This project leverages the AO Network and Arweave to provide a permanent, decentralized audit layer for cancer drug reimbursement and regulatory data. Our goal is to ensure that life-saving transparency is never erased by bureaucracy.
+
+📊 Global Audit Dashboard (v2.0.0 Global Expansion)
+Current status of international regulatory administrative lag.
+
+Target Drug,Case ID,Baseline (US FDA),Comparison Region,Status,Audit Delay
+Rituxan,RIT-2026-JP,Oct 2012,Japan (MHLW),Deliberating,~13.2 Years
+Xeljanz,XEL-2017-EU,Nov 2012,European Union,Safety Update,52 Months
+Xeljanz,XEL-2013-TW,Nov 2012,Taiwan (TFDA),Approved,13 Months
+
+🚨 Audit Discovery: Rituxan's 100mg/500mg dosage standards were settled by the FDA in 2012. However, our 2026 audit found the MHLW still deliberating partial changes for these same dosages in Japan, exposing a 13.2-year regulatory gap.
+
 ## 📊 The "7.6x Efficiency Gap" (The Core Audit)
 This project uses the **AO Truth Machine** to benchmark the massive disparity in drug approval speeds between jurisdictions.
 
